@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         DOCKER_TAG = getDockerTag()  
-        PATH = "C:\\Program Files\\Git\\usr\\bin"
+        PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}
     }
     stages{
         stage('Build Docker Image'){

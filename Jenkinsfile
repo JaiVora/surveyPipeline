@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('Build Docker Image'){
             steps{
-                sh "docker build -t gcr.io/angelic-pipe-270921/hello:${DOCKER_TAG} ."
+                bat "docker build -t gcr.io/angelic-pipe-270921/hello:${DOCKER_TAG} ."
             }
             
         }

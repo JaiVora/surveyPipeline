@@ -20,7 +20,7 @@ pipeline{
         }
         stage('Deploy Image'){
             steps{
-                sh "gcloud kubectl set image deployment/hello-web hello-app=gcr.io/angelic-pipe-270921/hello-app:${DOCKER_TAG}"
+                sh "kubectl set image deployment/hello-web hello-app=gcr.io/angelic-pipe-270921/hello-app:${DOCKER_TAG}"
             }
         }
     }

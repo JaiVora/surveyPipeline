@@ -12,7 +12,6 @@ pipeline{
         }
         stage('Push Image'){
             steps{
-                sh "gcloud auth login"
                 sh "gcloud iam service-accounts keys create keyfile.json --iam-account jaivora@angelic-pipe-270921.iam.gserviceaccount.com"
                 sh "gcloud auth activate-service-account jaivora@angelic-pipe-270921.iam.gserviceaccount.com --key-file=keyfile.json"
                 sh "gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us.gcr.io"

@@ -12,6 +12,7 @@ pipeline{
         }
         stage('Push Image'){
             steps{
+                sh ""docker login -u vora.jai1@gmail.com -p chintan28058562 gcr.io"
                 sh "docker push gcr.io/angelic-pipe-270921/hello:${DOCKER_TAG}"
             }
         }

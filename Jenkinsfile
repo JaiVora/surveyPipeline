@@ -12,7 +12,8 @@ pipeline{
         }
         stage('Push Image'){
             steps{
-                sh "docker login -u _json_key -p '$(cat keyfile.json)' https://gcr.io"
+                sh "gcloud auth activate-service-account jaivora@angelic-pipe-270921.iam.gserviceaccount.com --key-file=keyfile.json"
+                sh "gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us.gcr.io"
                 sh "docker push gcr.io/angelic-pipe-270921/hello:${DOCKER_TAG}"
             }
         }

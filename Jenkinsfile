@@ -12,7 +12,7 @@ pipeline{
         }
         stage('Push Image'){
             steps{
-                sh "docker login -u _json_key -p (cat keyfile.json) https://gcr.io"
+                sh "docker login -u _json_key -p  cat keyfile.json https://gcr.io"
                 sh "docker push gcr.io/angelic-pipe-270921/hello:${DOCKER_TAG}"
             }
         }

@@ -18,6 +18,11 @@ pipeline{
                 sh "docker push gcr.io/angelic-pipe-270921/hello:${DOCKER_TAG}"
             }
         }
+        stage('Deploy Image'){
+            steps{
+                sh "kubectl set image deployment/hello-web hello-app=gcr.io/angelic-pipe-270921/hello-app:${DOCKER_TAG}"
+            }
+        }
     }
 }
 def getDockerTag(){

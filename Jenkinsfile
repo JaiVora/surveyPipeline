@@ -20,7 +20,7 @@ pipeline{
         }
         stage('Deploy Image'){
             steps{
-                sh "kubectl set image deployment/hello-web hello-app=gcr.io/angelic-pipe-270921/hello-app:${DOCKER_TAG}"
+                sh "/home/jai/Downloads/google-cloud-sdk/bin/kubectl set image deployment/hello-web hello-app=gcr.io/angelic-pipe-270921/hello-app:${DOCKER_TAG}"
             }
         }
     }

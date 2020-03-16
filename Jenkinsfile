@@ -12,7 +12,6 @@ pipeline{
         }
         stage('Push Image'){
             steps{
-                sh "gcloud auth configure-docker"
                 sh "docker push gcr.io/angelic-pipe-270921/hello:${DOCKER_TAG}"
             }
         }

@@ -10,6 +10,11 @@ pipeline{
             }
             
         }
+        stage('Push Image'){
+            steps{
+                sh "docker push gcr.io/angelic-pipe-270921/hello:${DOCKER_TAG}"
+            }
+        }
     }
 }
 def getDockerTag(){

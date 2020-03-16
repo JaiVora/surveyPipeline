@@ -20,6 +20,8 @@ pipeline{
         }
         stage('Deploy Image'){
             steps{
+                sh "gcloud auth activate-service-account jaivora@angelic-pipe-270921.iam.gserviceaccount.com --key-file=keyfile.json"
+                sh "gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us.gcr.io"
                 sh "/home/jai/Downloads/google-cloud-sdk/bin/kubectl set image deployment/hello-web hello-app=gcr.io/angelic-pipe-270921/hello-app:${DOCKER_TAG}"
             }
         }

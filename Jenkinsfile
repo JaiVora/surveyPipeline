@@ -24,7 +24,6 @@ pipeline{
                 sh "gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://us.gcr.io"
                 sh "gcloud auth configure-docker"
                 sh "gcloud container clusters get-credentials hello-cluster --region us-east4 --project angelic-pipe-270921"
-                sh "/home/jai/Downloads/google-cloud-sdk/bin/kubectl delete deployments --all"
                 sh "/home/jai/Downloads/google-cloud-sdk/bin/kubectl set image deployment/hello-web survey=gcr.io/angelic-pipe-270921/survey:latest"
             }
         }

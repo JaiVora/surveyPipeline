@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('Build Docker Image'){
             steps{
-                sh "docker build . -t gcr.io/angelic-pipe-270921/survey:latest"
+                sh "docker build . -t gcr.io/angelic-pipe-270921/survey:v1"
             }
             
         }
